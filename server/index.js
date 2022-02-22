@@ -1,18 +1,8 @@
-//require express and app initialize
-const express = require("express");
-const app = express();
+//intialize port
+const PORT = process.env.PORT || 3000;
+// require app
+const app = require("./app");
 
-//middleware
-const morgan = require("morgan");
-app.use(morgan("dev"));
-
-//static middleware
-app.use(express.static(path.join(__dirname, "./public/index.html")));
-
-//body parsing middleware
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// api redirect
-app.use("/api", require("./api/index"));
+app.listen(PORT, function () {
+  console.log(`Your server, listening on port ${PORT}`);
+});
