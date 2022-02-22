@@ -1,3 +1,5 @@
+// import css 
+import '../public/style.css'
 // import react
 import React from "react";
 import ReactDOM from 'react-dom'
