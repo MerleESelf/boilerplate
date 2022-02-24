@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 //change this out 
-import dummyReducer from './reducer';
+import dummyReducer from './redux/reducer';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
