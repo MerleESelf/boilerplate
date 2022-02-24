@@ -91,4 +91,8 @@ module.exports = User;
     if (user.changed('password')) {
       user.password = await bcrypt.hash(user.password, SALT_ROUNDS);
     }
-  }
+  };
+
+  User.beforeCreate(hashPassword)
+  User.beforeUpdate(hashPassword)
+  User.beforeBulkCreate(users => Promise.all(users.map(hashPassword)))
