@@ -16,8 +16,9 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// api redirect
+// api and auth redirect
 app.use("/api", require("./api/index"));
+app.use("/auth", require("./user-auth"))
 
 // will always serve up the inital html for any routes that we haven't specified
 app.get("*", function (req, res) {
